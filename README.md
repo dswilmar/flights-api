@@ -14,3 +14,7 @@ composer install
 ````
 php -S localhost:8000 -t public
 ````
+## Rotas
+Método    | Rota      | Retorno
+--------- | --------- | ---------
+GET       | /flights  | Retorna um JSON com os vôos e grupos de vôos gerados
