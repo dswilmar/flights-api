@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class FlightsService
 {
+    protected $endpoint;
     protected $response;
     protected $flights = array();
     protected $groupFlights = array();
@@ -35,8 +36,8 @@ class FlightsService
     private function getFlightsFromAPI()
     {
         try {
-            //$this->response = Http::get('http://prova.123milhas.net/flights');
-            $this->response = Http::get('http://localhost/voos/voos_teste.json');
+            $this->endpoint = '/flights';
+            $this->response = Http::get(env('BASE_URL_API' . $this->endpoint));
             $this->parseFlightsData();
             $this->totalFlights = count($this->flights);
         } catch (Exception $ex) {
