@@ -9,4 +9,8 @@ API construída com PHP, utilizando o Framework Lumen para retornar vôos e grup
 ````
 composer install
 ````
-* 
+* Altere o nome do arquivo .env.example para .env e faça as alterações nas configurações da aplicação caso seja necessário
+* O comando abaixo irá rodar a aplicação em sua máquina local na porta 8000
+````
+php -S localhost:8000 -t public
+````
