@@ -18,3 +18,6 @@ php -S localhost:8000 -t public
 Método    | Rota      | Retorno
 --------- | --------- | ---------
 GET       | /flights  | Retorna um JSON com os vôos e grupos de vôos gerados
+
+## Aplicação Rodando no Heroku
+<https://wilmar-flights-api.herokuapp.com/flights>
