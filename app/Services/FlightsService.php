@@ -95,7 +95,7 @@ class FlightsService
     }
 
     //fazer metodo para ver se parametro de busca ja existe
-    function paramExists($fare, $price)
+    private function paramExists($fare, $price)
     {
         $paramExists = false;
         foreach ($this->paramsFind as $param) {
@@ -104,6 +104,14 @@ class FlightsService
             }
         }
         return $paramExists;
+    }
+
+    //Metodo para verificar e ordenar os preços dos grupos
+    private function sortGroups($group1, $group2)
+    {
+        if ($group1['totalPrice'] == $group2['totalPrice']) return 0;
+
+        return ($group1['totalPrice'] > $group2['totalPrice']) ? 1 : -1;
     }
 
     //Metodo para fazer o agrupamento dos voos
@@ -137,7 +145,7 @@ class FlightsService
             }
         }
         $this->totalGroups = count($this->groupFlights);
-        return $this->groupFlights;
+        return usort($this->groupFlights, array($this, 'sortGroups'));
     }
 
     //Metodo para encontrar o grupo mais barato
