@@ -37,7 +37,7 @@ class FlightsService
     {
         try {
             $this->endpoint = '/flights';
-            $this->response = Http::get(env('BASE_URL_API' . $this->endpoint));
+            $this->response = Http::get(env('BASE_URL_API') . $this->endpoint);
             $this->parseFlightsData();
             $this->totalFlights = count($this->flights);
         } catch (Exception $ex) {
