@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\FlightsService;
+
 class FlightsController
 {
     public function index()
     {
-        return [
-            "ok"
-        ];
+        //chamando o Service de voos
+        $flightsService = new FlightsService();
+        return $flightsService->getFlights();
     }
 }
