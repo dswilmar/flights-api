@@ -3,6 +3,8 @@
 namespace App\Services;
 
 
+use GuzzleHttp\Exception\ConnectException;
+use Illuminate\Http\Client\HttpClientException;
 use Illuminate\Support\Facades\Http;
 
 class FlightsService
@@ -35,14 +37,10 @@ class FlightsService
     //Metodo que faz a consulta na API
     private function getFlightsFromAPI()
     {
-        try {
-            $this->endpoint = '/flights';
-            $this->response = Http::get(env('BASE_URL_API') . $this->endpoint);
-            $this->parseFlightsData();
-            $this->totalFlights = count($this->flights);
-        } catch (Exception $ex) {
-            throw new Exception($ex->getMessage());
-        }
+        $this->endpoint = '/flights';
+        $this->response = Http::get(env('BASE_URL_API') . $this->endpoint);
+        $this->parseFlightsData();
+        $this->totalFlights = count($this->flights);
     }
 
     //Metodo para converter o json retornado da API para objeto

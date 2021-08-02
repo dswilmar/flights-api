@@ -10,6 +10,6 @@ class FlightsController
     {
         //chamando o Service de voos
         $flightsService = new FlightsService();
-        return $flightsService->getFlights();
+        return response()->json($flightsService->getFlights(), 200);
     }
 }
