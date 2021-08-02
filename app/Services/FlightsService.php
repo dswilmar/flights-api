@@ -140,6 +140,7 @@ class FlightsService
                             'outbound' => $outboundFlights,
                             'inbound' => $inboundFlights
                         ));
+                        break;
                     }
                 }
             }
